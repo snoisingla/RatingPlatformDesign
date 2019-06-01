@@ -48,6 +48,7 @@
 
 ## `RatingService` Interface
 
+This is the interface between webserver and the database. 
 ```
 interface RatingService{
 
@@ -75,7 +76,8 @@ interface RatingService{
 	 *
 	 * @param customerId must exist in User table.
 	 * @param productId must exist in Product table.
-	 * @return {@literal true} if customer is eligible to rate or {@literal false} otherwise.
+	 * @return {@literal true} if customer is eligible to rate. If a customer has already rated he is illegaible to rate.
+	 * We can also add other logic(Assumption 1) to determine the eligibility.
 	 * @throws CustomerNotFoundException if {@code customerId} not found.
 	 * @throws ProductNotFoundException if {@code productId} not found.
 	 */
